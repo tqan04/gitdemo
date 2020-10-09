@@ -22,7 +22,7 @@ public class NewTest {
 			System.setProperty("webdriver.gecko.driver","C:\\Users\\tqan\\Downloads\\geckodriver-v0.27.0-win64\\geckodriver.exe");
 			Proxy proxy = new Proxy();
 			proxy.setHttpProxy("10.225.3.1:3128");
-			proxy.setSslProxy("10.225.3.1:3128");
+			proxy.setSslProxy("10.225.3.1:3128");//https proxy
 			FirefoxOptions options = new FirefoxOptions();
 			options.setCapability("proxy", proxy);
 		    driver = new FirefoxDriver(options);  
