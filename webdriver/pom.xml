@@ -41,6 +41,7 @@
           		<suiteXmlFiles>
             		<suiteXmlFile>testng.xml</suiteXmlFile>
           		</suiteXmlFiles>
+          		<argLine>-Dhttp.proxyHost=10.225.3.1 -Dhttp.proxyPort=3128</argLine>
         	</configuration>
       	</plugin>
   	</plugins>
