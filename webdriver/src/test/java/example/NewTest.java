@@ -11,7 +11,7 @@ public class NewTest {
 	    private WebDriver driver;		
 		@Test				
 		public void testEasy() {	
-			driver.get("http://www.google.com");  
+			driver.get("http://www.google.com/");  
 			String title = driver.getTitle();				 
 			Assert.assertTrue(title.contains("Google")); 		
 		}	
