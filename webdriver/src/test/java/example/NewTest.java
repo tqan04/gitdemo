@@ -11,14 +11,16 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;		
 public class NewTest {		
 	    private WebDriver driver;		
-		@Test				
+		@Test(groups={"easy"})				
 		public void testEasy() {	
+			System.out.println("Test");
 			driver.get("https://www.google.com/");  
 			String title = driver.getTitle();				 
 			Assert.assertTrue(title.contains("Google")); 		
 		}	
-		@BeforeTest
+		@BeforeTest(groups={"easy"})
 		public void beforeTest() {
+			System.out.println("beforeTest");
 			System.setProperty("webdriver.gecko.driver","C:\\Users\\tqan\\Downloads\\geckodriver-v0.27.0-win64\\geckodriver.exe");
 			Proxy proxy = new Proxy();
 			proxy.setHttpProxy("10.225.3.1:3128");
@@ -27,8 +29,9 @@ public class NewTest {
 			options.setCapability("proxy", proxy);
 		    driver = new FirefoxDriver(options);  
 		}		
-		@AfterTest
+		@AfterTest(groups={"easy"})
 		public void afterTest() {
+			System.out.println("afterTest");
 			driver.quit();			
 		}		
 }	
