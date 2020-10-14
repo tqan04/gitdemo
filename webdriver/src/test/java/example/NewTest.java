@@ -20,7 +20,7 @@ public class NewTest {
 	    @DataProvider
 	    public static Object[][] url() {
 	    	System.out.println("DataProvider:url");
-	        return new Object[][] {{"http://www.google.com", "Google"}, {"http://www.bing.com", "Bing"}};
+	        return new Object[][] {{"http://www.google.com", "Google"}, {"http://www.bing.com", "Bing"}, {"http://www.amazon.com", "Amazon"}};
 	    }
 
 	    @DataProvider
