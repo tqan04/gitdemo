@@ -1,6 +1,9 @@
 package example;		
 
 import org.openqa.selenium.Proxy;
+
+import java.io.IOException;
+
 import org.openqa.selenium.By;		
 import org.openqa.selenium.WebDriver;		
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -8,16 +11,39 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;		
 import org.testng.annotations.Test;	
 import org.testng.annotations.BeforeTest;	
-import org.testng.annotations.AfterTest;		
+import org.testng.annotations.AfterTest;	
+import org.testng.annotations.DataProvider;
+
 public class NewTest {		
-	    private WebDriver driver;		
-		@Test(groups={"easy"})				
-		public void testEasy() {	
-			System.out.println("Test");
-			driver.get("https://www.google.com/");  
+	    private WebDriver driver;	
+	    
+	    @DataProvider(name = "datasource")
+	    public static Object[][] url() {
+	    	System.out.println("DataProvider:url");
+	        return new Object[][] {{"http://www.google.com", "Google"}, {"http://www.bing.com", "Bing"}};
+	    }
+
+	    @DataProvider
+	    public static Object[][] dataFromExcel() throws IOException{
+	    	System.out.println("DataProvider:dataFromExcel");
+	    	return ReadExcel.readDataFromExcel("data\\url.xls", "Sheet1");
+	    }
+	    
+		@Test(groups={"_easy"},dataProvider="datasource")				
+		public void testDataProvider(String url, String ExpectedTitle) {	
+			System.out.println("Test:testDataProvider");
+			driver.get(url);  
 			String title = driver.getTitle();				 
-			Assert.assertTrue(title.contains("Google")); 		
-		}	
+			Assert.assertTrue(title.contains(ExpectedTitle)); 		
+		}
+		@Test(groups={"easy"},dataProvider="dataFromExcel")				
+		public void testDataProviderExcel(String url, String ExpectedTitle) {	
+			System.out.println("Test:testDataProviderExcel");
+			driver.get(url);  
+			String title = driver.getTitle();				 
+			Assert.assertTrue(title.contains(ExpectedTitle)); 		
+		}		
+		
 		@BeforeTest(groups={"easy"})
 		public void beforeTest() {
 			System.out.println("beforeTest");
