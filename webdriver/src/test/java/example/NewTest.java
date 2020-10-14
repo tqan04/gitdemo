@@ -17,7 +17,7 @@ import org.testng.annotations.DataProvider;
 public class NewTest {		
 	    private WebDriver driver;	
 	    
-	    @DataProvider(name = "datasource")
+	    @DataProvider
 	    public static Object[][] url() {
 	    	System.out.println("DataProvider:url");
 	        return new Object[][] {{"http://www.google.com", "Google"}, {"http://www.bing.com", "Bing"}};
@@ -29,7 +29,7 @@ public class NewTest {
 	    	return ReadExcel.readDataFromExcel("data\\url.xls", "Sheet1");
 	    }
 	    
-		@Test(groups={"_easy"},dataProvider="datasource")				
+		@Test(groups={"_easy"},dataProvider="url")				
 		public void testDataProvider(String url, String ExpectedTitle) {	
 			System.out.println("Test:testDataProvider");
 			driver.get(url);  

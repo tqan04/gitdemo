@@ -39,7 +39,8 @@ public class ReadExcel {
                         else
                         {
                             String value=formatter.formatCellValue(cell); //Get cell value as string
-                            Data[i][j]=value;                         }
+                            Data[i][j]=value;                         
+                        }
                     }
                 }
             }
