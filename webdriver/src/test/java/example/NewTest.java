@@ -53,7 +53,7 @@ public class NewTest {
 			proxy.setSslProxy("10.225.3.1:3128");//https proxy
 			FirefoxOptions options = new FirefoxOptions();
 			options.setCapability("proxy", proxy);
-		    driver = new FirefoxDriver(options);  
+		    	driver = new FirefoxDriver(options);  
 		}		
 		@AfterTest(groups={"easy"})
 		public void afterTest() {
