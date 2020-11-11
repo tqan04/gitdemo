@@ -44,7 +44,7 @@ public class NewTest {
 			Assert.assertTrue(title.contains(ExpectedTitle)); 		
 		}		
 		
-		@BeforeTest(groups={"easy"})
+		@BeforeTest(alwaysRun=true)
 		public void beforeTest() {
 			System.out.println("beforeTest");
 			System.setProperty("webdriver.gecko.driver","C:\\Users\\tqan\\Downloads\\geckodriver-v0.27.0-win64\\geckodriver.exe");
@@ -55,7 +55,7 @@ public class NewTest {
 			options.setCapability("proxy", proxy);
 		    	driver = new FirefoxDriver(options);  
 		}		
-		@AfterTest(groups={"easy"})
+		@AfterTest(alwaysRun=true)
 		public void afterTest() {
 			System.out.println("afterTest");
 			driver.quit();			
