@@ -29,14 +29,14 @@ public class NewTest {
 	    	return ReadExcel.readDataFromExcel("data\\url.xls", "Sheet1");
 	    }
 	    
-		@Test(groups={"_easy"},dataProvider="url")				
+		@Test(groups={"easy"},dataProvider="url")				
 		public void testDataProvider(String url, String ExpectedTitle) {	
 			System.out.println("Test:testDataProvider");
 			driver.get(url);  
 			String title = driver.getTitle();				 
 			Assert.assertTrue(title.contains(ExpectedTitle)); 		
 		}
-		@Test(groups={"easy"},dataProvider="dataFromExcel")				
+		@Test(groups={"_easy"},dataProvider="dataFromExcel")				
 		public void testDataProviderExcel(String url, String ExpectedTitle) {	
 			System.out.println("Test:testDataProviderExcel");
 			driver.get(url);  
